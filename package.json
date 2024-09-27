@@ -1,0 +1,31 @@
+{
+  "name": "koishi-plugin-w-subscribe-common",
+  "description": "WillBot: subscription rule: common",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "chatbot",
+    "koishi",
+    "plugin"
+  ],
+  "peerDependencies": {
+    "koishi": "^4.18.0"
+  },
+  "devDependencies": {
+    "koishi-plugin-w-subscribe": "workspace:^"
+  },
+  "dependencies": {
+    "schemastery": "^3.14.6"
+  },
+  "scripts": {
+    "build": "yarn workspace willbot build w-subscribe-common",
+    "bump": "yarn workspace willbot bump w-subscribe-common",
+    "pub": "yarn workspace willbot pub w-subscribe-common"
+  }
+}
