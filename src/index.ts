@@ -1,4 +1,4 @@
-import { Context, Session, z } from 'koishi'
+import { Context, h, Session, z } from 'koishi'
 import { SubscriptionRules } from 'koishi-plugin-w-subscribe'
 
 export const name = 'w-subscribe-common'
@@ -64,7 +64,7 @@ export const compileFilter = (config: SubscriptionRules['common']): (session: Se
 export function apply(ctx: Context) {
     const { dispose } = ctx.subscribe.rule('common', {
         filter: (session, config) => compileFilter(config)(session),
-        render: (_session, msg) => msg.content,
+        render: ctx.subscribe.utils.escapeAt,
         schema: zLogic(z.union([
             z.object({ type: z.const('senderIs').required(), id: z.string().required() }),
             z.object({ type: z.const('includes').required(), content: z.string().required() })
